@@ -1,0 +1,16 @@
+/* Global layout: prevent page-level vertical scrollbar by making the app fill viewport */
+html, body, app-root {
+	height: 100%;
+}
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow: hidden; /* hide any viewport overflow; app component manages internal scrolling */
+}
+
+/* Ensure consistent box-sizing and prevent accidental overflow on iOS safe-area */
+*, *::before, *::after { box-sizing: border-box }
+html, body { max-height: 100vh }
+
+/* You can add global styles to this file, and also import other style files */
