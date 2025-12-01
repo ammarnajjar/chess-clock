@@ -35,7 +35,13 @@ jobs:
         run: npm ci
 
       - name: Build production
-        run: npm run build --silent
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
+        run: npm run build --silent -- --base-href "/${{ github.event.repository.name }}/"
+
+      - name: Add SPA fallback (404 -> index)
+        run: |
+          cp -f dist/apps/chess-clock/browser/index.html dist/apps/chess-clock/browser/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
