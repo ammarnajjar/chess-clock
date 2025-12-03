@@ -10,13 +10,13 @@
 </header>
 
 <div class="board">
-  <div class="player white" [class.active]="timer.activePlayer === 0" (click)="playerClick(0)">
+  <div class="player white" [class.active]="timer.activePlayer === 0" (click)="playerClick(0)" role="button" tabindex="0" (keydown.enter)="playerClick(0)" (keydown.space)="playerClick(0)">
     <div class="label">White</div>
     <div class="time">{{ timer.displayTime(0) }}</div>
     <div class="meta">Moves: {{ timer.moveCount[0] }}</div>
   </div>
 
-  <div class="player black" [class.active]="timer.activePlayer === 1" (click)="playerClick(1)">
+  <div class="player black" [class.active]="timer.activePlayer === 1" (click)="playerClick(1)" role="button" tabindex="0" (keydown.enter)="playerClick(1)" (keydown.space)="playerClick(1)">
     <div class="label">Black</div>
     <div class="time">{{ timer.displayTime(1) }}</div>
     <div class="meta">Moves: {{ timer.moveCount[1] }}</div>
